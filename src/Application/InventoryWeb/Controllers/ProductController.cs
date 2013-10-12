@@ -12,10 +12,14 @@ namespace InventoryWeb.Controllers
         //
         // GET: /Product/
 
-        public ActionResult Index()
-        {
+        public ActionResult Index() {
             ViewBag.Products = Product.GetProducts();
             return View();
+        }
+
+        public ActionResult Details(string id) {
+            Inventory.Product product = Product.GetProduct(id);
+            return View(product);
         }
 
         public ActionResult Add() {
@@ -26,7 +30,10 @@ namespace InventoryWeb.Controllers
         public ActionResult Add(FormCollection post) {
             try {
                 // Aqui se agregan las cuentas
-                Product product = Product.CreateProduct(post["productName"].ToString());
+                Product product = Product.CreateProduct(
+                    post["productCode"].ToString()
+                    , post["productName"].ToString()
+                    , post["productDescription"].ToString());
                 TempData["msg"] = "<div class='alert alert-success'>¡Producto creado!</div>";
                 return RedirectToAction("Index");
             }

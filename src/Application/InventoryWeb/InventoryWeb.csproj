@@ -112,6 +112,7 @@
     <Content Include="Views\Dev\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\Add.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
     <None Include="Web.Sample.config" />
   </ItemGroup>
   <ItemGroup>

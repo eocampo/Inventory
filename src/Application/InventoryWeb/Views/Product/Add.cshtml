@@ -6,10 +6,11 @@
 
 <p>@Html.Raw(TempData["msg"])</p>
 
-@using (Html.BeginForm("Add", "Product", FormMethod.Post, new { @class = "form-inline", @id = "form2" }))
-{
+<form action="/product/add" class="form-inline" id="form2" method="post">
     <div class="form-group">
+        <input type="text"  class="form-control" value="" name="productCode" placeholder="Código"/>
         <input type="text"  class="form-control" value="" name="productName" placeholder="Producto"/>
+        <textarea class="form-control" name="productDescription" placeholder="Descripción"></textarea>
     </div>
     <button type="submit" class="btn btn-default">Agregar</button>
-}
+</form>

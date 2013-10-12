@@ -12,7 +12,7 @@
 
 <ul>
     @foreach(Inventory.Product product in ViewBag.Products) {
-    <li>@product.Name</li>
+    <li><a href="~/product/details/@product.Code">@product.Name</a></li>
     }
 </ul>
 

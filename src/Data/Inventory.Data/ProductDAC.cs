@@ -30,10 +30,26 @@ namespace Inventory.Data
             return command.ExecuteReader(CommandBehavior.CloseConnection);
         }
 
+        public IDataReader Select(Guid productId) {
+            SqlCommand command = CreateCommand(string.Format(
+                "SELECT * FROM [inventory_product] WHERE [product_id] = '{0}'"
+                , productId));
+            command.Connection.Open();
+            return command.ExecuteReader(CommandBehavior.CloseConnection);
+        }
 
-        public bool Insert(Guid productId, string name) {
-            SqlCommand command = CreateCommand(string.Format("INSERT INTO inventory_product ([product_id], [display_name]) VALUES ('{0}','{1}')"
-                , productId, name));
+        public IDataReader FindByCode(string code) {
+            SqlCommand command = CreateCommand(string.Format(
+                "SELECT * FROM [inventory_product] WHERE [code] = '{0}'"
+                , code));
+            command.Connection.Open();
+            return command.ExecuteReader(CommandBehavior.CloseConnection);
+        }
+
+        public bool Insert(Guid productId, string code, string name, string description) {
+            SqlCommand command = CreateCommand(string.Format(
+                "INSERT INTO inventory_product ([product_id], [display_name], [code], [description]) VALUES ('{0}','{1}','{2}','{3}')"
+                , productId, name, code, description));
             command.Connection.Open();
             bool result = command.ExecuteNonQuery() >= 0;
             command.Connection.Close();
