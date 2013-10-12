@@ -151,5 +151,5 @@ $RECYCLE.BIN/
 .DS_Store
 
 # Custom
-/Web.config
-/web.config
+/src/Application/InventoryWeb/Web.config
+/src/Application/InventoryWeb/web.config
