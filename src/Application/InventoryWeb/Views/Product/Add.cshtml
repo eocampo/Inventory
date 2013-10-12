@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Crear nuevo producto</h2>
+
+<p>@Html.Raw(TempData["msg"])</p>
+
+@using (Html.BeginForm("Add", "Product", FormMethod.Post, new { @class = "form-inline", @id = "form2" }))
+{
+    <div class="form-group">
+        <input type="text"  class="form-control" value="" name="productName" placeholder="Producto"/>
+    </div>
+    <button type="submit" class="btn btn-default">Agregar</button>
+}

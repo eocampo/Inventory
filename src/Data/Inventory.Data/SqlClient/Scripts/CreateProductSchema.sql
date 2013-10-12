@@ -5,7 +5,7 @@
 	,[description]	NVARCHAR(2048)			NULL
 	,[comments]		NVARCHAR(2048)			NULL
 
-	 ,CONSTRAINT [pk_sacpi_supplier_contract_item] PRIMARY KEY NONCLUSTERED (
-		[contract_item_id] ASC
+	 ,CONSTRAINT [pk_inventory_product] PRIMARY KEY NONCLUSTERED (
+		[product_id] ASC
 	) ON [PRIMARY]
 ) ON [PRIMARY]

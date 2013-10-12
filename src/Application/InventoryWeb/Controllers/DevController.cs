@@ -16,5 +16,15 @@ namespace InventoryWeb.Controllers
             return View();
         }
 
+        public ActionResult CreateSchema() {
+            Inventory.Data.DatabaseManager.CreateSchema();
+            return new RedirectResult("~/dev/");
+        }
+
+        public ActionResult DropSchema() {
+            Inventory.Data.DatabaseManager.DropSchema();
+            return new RedirectResult("~/dev/");
+        }
+
     }
 }
